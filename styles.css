@@ -59,9 +59,9 @@ header {
   z-index: 1000;
   background-color: var(--brand-primary);
   color: var(--color-header-text);
-  padding: 0.75rem 0; 
+  padding: 1.5rem 0;
   box-shadow: 0 0 0 transparent;
-  transition: box-shadow 0.2s ease, padding 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 body.scrolled header {
@@ -92,7 +92,7 @@ header a {
 .logo {
   width: clamp(120px, 20vw, 240px); /* responsive scaling */
   height: auto;
-  display: inline-block;
+  display: block;
 }
 
 /* Mobile tweak */
