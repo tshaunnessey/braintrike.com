@@ -24,6 +24,14 @@
       <a href="about.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="logo-link" aria-label="BrainTrike home">
         <img src="images/combo-logo-white.svg" alt="BrainTrike Logo" class="logo" />
       </a>
+
+          <!-- Hamburger button (hidden on desktop) -->
+    <button class="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
       <nav>
         <a href="about.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="animated">About</a>
         <a href="services.html" hx-get="services.html" hx-target="#main" hx-push-url="true">Services</a>
@@ -49,5 +57,12 @@
     <p>&copy; 2025 BrainTrike. All rights reserved. 🧠</p>
     </div>
   </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('show');
+  });
+</script>
+
 </body>
 </html>
