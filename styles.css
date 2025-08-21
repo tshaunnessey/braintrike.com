@@ -91,14 +91,13 @@ header a {
 .logo-link {
   display: flex;
   align-items: center;
-  text-decoration: none;
+  height: 100%;
 }
 
-/* Base logo size (desktop & tablet) */
 .logo {
-  width: clamp(120px, 20vw, 240px); /* responsive scaling */
-  height: auto;
   display: block;
+  max-height: 60px;   /* caps logo height */
+  width: auto;
 }
 
 /* Mobile tweak */
@@ -410,15 +409,6 @@ h2::after {
   background-size: 300px, 20px 20px, 20px 20px, 20px 20px, 20px 20px, auto, auto;
   background-blend-mode: lighten;
 }
-
-
-.card-emblem {
-  text-align: center;
-  font-size: 2.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
 
 
 /* Hide hamburger on desktop */
