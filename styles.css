@@ -16,14 +16,6 @@
   --headshot-border: #35944b;
 }
 
-/* When user prefers *dark mode* */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg: #121212;
-    --brand-text: #f1f1f1;
-    --brand-white: #1e1e1e;
-  }
-}
 
 
 body {
