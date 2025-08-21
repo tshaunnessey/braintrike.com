@@ -97,7 +97,7 @@ header a {
 /* Base logo size (desktop & tablet) */
 .logo {
   width: clamp(120px, 20vw, 240px); /* responsive scaling */
-  height: auto;
+  height: fit-content;
   display: block;
 }
 
