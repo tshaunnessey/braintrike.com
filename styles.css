@@ -1,27 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
+  /* Default (dark navy look) */
   --brand-primary: #002244;
   --brand-accent: #35944b; 
   --brand-bg: #203023;
   --brand-text: #121212;
   --body-bg: #002244;
   --brand-white: #ffffff;
-  --color-header-bg: #121212;
+  --color-header-bg: #002244;
   --color-header-text: #ffffff;
   --nav-primary: #F1EDE4;
   --nav-visited: #ffffff;
   --nav-hover: #ffffff;
-  --headshot-border: #35944b;  
+  --headshot-border: #35944b;
 }
 
-@media (prefers-color-scheme: light) {
+/* When user prefers *dark mode* */
+@media (prefers-color-scheme: dark) {
   :root {
-    --brand-bg: #121212;
+    --body-bg: #121212;
     --brand-text: #f1f1f1;
     --brand-white: #1e1e1e;
   }
 }
+
 
 body {
   font-family: 'Roboto', system-ui, sans-serif;
