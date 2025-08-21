@@ -81,28 +81,6 @@ header a {
   gap: 1rem;
 }
 
-.logo-link {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  text-decoration: none;
-}
-
-/* Base logo size (desktop & tablet) */
-.logo {
-  width: clamp(120px, 20vw, 240px); /* responsive scaling */
-  height: auto;
-  display: block;
-}
-
-/* Mobile tweak */
-@media (max-width: 600px) {
-  .logo {
-    width: 100px;   /* keeps it small on phones */
-  }
-}
-
-
 
 
 a {
