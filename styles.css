@@ -90,27 +90,13 @@ header a {
 
 /* Logo sizing - mobile first */
 .logo {
-  max-height: 50px;
   height: auto;
   width: auto;
   display: block;
   object-fit: contain;
 }
 
-/* Tablets and up */
-@media (min-width: 768px) {
-  .logo {
-    max-height: 80px;
-  }
-}
 
-/* Desktops and up */
-@media (min-width: 1024px) {
-  .logo {
-    max-height: 100px;
-  }
-}
-}
 
 a {
   color: var(--nav-primary);
