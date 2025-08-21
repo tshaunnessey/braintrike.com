@@ -88,12 +88,20 @@ header a {
   text-decoration: none;
 }
 
-/* Logo sizing - mobile first */
+/* Base logo size (desktop & tablet) */
 .logo {
+  width: clamp(120px, 20vw, 240px); /* responsive scaling */
   height: auto;
-  width: auto;
   display: block;
 }
+
+/* Mobile tweak */
+@media (max-width: 600px) {
+  .logo {
+    width: 100px;   /* keeps it small on phones */
+  }
+}
+
 
 
 
