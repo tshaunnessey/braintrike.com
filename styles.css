@@ -90,9 +90,9 @@ header a {
 
 /* Base logo size (desktop & tablet) */
 .logo {
-  width: clamp(80px, 20vw, 240px); /* responsive scaling */
+  width: clamp(120px, 20vw, 240px); /* responsive scaling */
   height: auto;
-  display: block;
+  display: inline-block;
 }
 
 /* Mobile tweak */
