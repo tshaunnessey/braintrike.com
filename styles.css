@@ -81,7 +81,11 @@ header a {
   gap: 1rem;
 }
 
-
+.logo { 
+  height: 40px; 
+  width: auto; 
+  display: block; 
+}
 
 a {
   color: var(--nav-primary);
