@@ -104,7 +104,7 @@ header a {
 /* Mobile tweak */
 @media (max-width: 600px) {
   .logo {
-    width: 200px;   /* keeps it small on phones */
+    width: 150px;   /* keeps it small on phones */
   }
 }
 
