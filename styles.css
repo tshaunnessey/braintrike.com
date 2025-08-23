@@ -447,3 +447,39 @@ h2::after {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
 }
+
+
+
+
+/* Mobile hamburger fixes */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;       /* slightly bigger for touch */
+    height: 22px;      /* explicit height to prevent collapsing */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;     /* above header */
+    -webkit-tap-highlight-color: transparent; /* remove blue highlight on iOS */
+    flex-shrink: 0;    /* prevent flex shrinking */
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    background: var(--color-header-text);
+    border-radius: 2px;
+    width: 100%;       /* ensure full width */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+}
+
+
+
+.hamburger {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
