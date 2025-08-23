@@ -255,3 +255,17 @@ h1, h2, h3 { letter-spacing: -0.01em; }
   .nav-links.show { display: flex; }
   .nav-links a { padding: 0.5rem 0; color: var(--color-header-text); text-decoration: none; font-weight: 500; }
 }
+
+
+/* Medium screens (tablet) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .team-row .photo {
+    flex: 0 0 80px;   /* keep closer to desktop size */
+    max-width: 80px;
+  }
+
+  .team-row .headshot {
+    max-width: 80px;  /* prevent it from blowing up */
+    height: auto;
+  }
+}
