@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" hx-boost="true">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,11 +21,11 @@
 <body>
 <header>
   <div class="container header-flex">
-    <a href="index.html" class="logo-link" aria-label="BrainTrike home">
+    <a href="index.html" class="logo-link" aria-label="BrainTrike home"
+       hx-get="about.html" hx-target="#main" hx-swap="innerHTML">
       <img src="images/combo-logo-white.svg" alt="BrainTrike Logo" class="logo" />
     </a>
 
-    <!-- Hamburger button (hidden on desktop) -->
     <button class="hamburger" aria-label="Toggle navigation">
       <span></span>
       <span></span>
@@ -34,10 +34,14 @@
 
     <div class="nav-links">
       <nav>
-        <a href="about.html" class="animated">About</a>
-        <a href="services.html">Services</a>
-        <a href="team.html">Team</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" 
+           hx-get="about.html" hx-target="#main" hx-swap="innerHTML">About</a>
+        <a href="services.html" 
+           hx-get="services.html" hx-target="#main" hx-swap="innerHTML">Services</a>
+        <a href="team.html" 
+           hx-get="team.html" hx-target="#main" hx-swap="innerHTML">Team</a>
+        <a href="contact.html" 
+           hx-get="contact.html" hx-target="#main" hx-swap="innerHTML">Contact</a>
       </nav>
     </div>
   </div>
@@ -46,10 +50,8 @@
 <main id="main" class="container"
       hx-get="about.html"
       hx-trigger="load"
-      hx-target="#main"
       hx-swap="innerHTML">
-  <h1>Welcome</h1>
-  <p>Home page content here</p>
+  <!-- Default content is replaced immediately by About page -->
 </main>
 
 <footer class="container">
@@ -65,7 +67,7 @@
 
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('show');
-    hamburger.classList.toggle('active'); 
+    hamburger.classList.toggle('active');
   });
 
   nav.querySelectorAll('a').forEach(link => {
