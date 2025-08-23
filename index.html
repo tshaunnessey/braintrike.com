@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" hx-boost="true" hx-target="#main">
+<html lang="en" hx-boost="true">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +7,6 @@
   <title>BrainTrike</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-
-<meta http-equiv="refresh" content="0; url=about.html">
-
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJQ27CXC9W"></script>
@@ -35,7 +32,6 @@
       <span></span>
     </button>
 
-    <!-- Wrap nav inside .nav-links -->
     <div class="nav-links">
       <nav>
         <a href="about.html" class="animated">About</a>
@@ -47,17 +43,21 @@
   </div>
 </header>
 
-  <main id="main" class="container">
-    <h1>Welcome</h1>
-    <p>Home page content here</p>
-  </main>
+<main id="main" class="container"
+      hx-get="about.html"
+      hx-trigger="load"
+      hx-target="#main"
+      hx-swap="innerHTML">
+  <h1>Welcome</h1>
+  <p>Home page content here</p>
+</main>
 
-  <footer class="container">
-    <hr>
-    <div class="bg-text">
-      <p>&copy; 2025 BrainTrike. All rights reserved. 🧠</p>
-    </div>
-  </footer>
+<footer class="container">
+  <hr>
+  <div class="bg-text">
+    <p>&copy; 2025 BrainTrike. All rights reserved. 🧠</p>
+  </div>
+</footer>
 
 <script>
   const hamburger = document.querySelector('.hamburger');
@@ -65,10 +65,9 @@
 
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('show');
-    hamburger.classList.toggle('active'); // animate into X
+    hamburger.classList.toggle('active'); 
   });
 
-  // Close menu + reset hamburger after clicking a nav link
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('show');
