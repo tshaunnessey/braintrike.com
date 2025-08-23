@@ -19,29 +19,31 @@
 </head>
 
 <body>
-  <header>
-    <div class="container header-flex">
-      <a href="index.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="logo-link" aria-label="BrainTrike home">
-        <img src="images/combo-logo-white.svg" alt="BrainTrike Logo" class="logo" />
-      </a>
+<header>
+  <div class="container header-flex">
+    <a href="index.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="logo-link" aria-label="BrainTrike home">
+      <img src="images/combo-logo-white.svg" alt="BrainTrike Logo" class="logo" />
+    </a>
 
-<!-- Hamburger button (hidden on desktop) -->
-<button class="hamburger" aria-label="Toggle navigation">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+    <!-- Hamburger button (hidden on desktop) -->
+    <button class="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-<!-- Add .nav-links here -->
-<nav class="nav-links">
-  <a href="about.html" hx-get="about.html" hx-target="#main" hx-push-url="true">About</a>
-  <a href="services.html" hx-get="services.html" hx-target="#main" hx-push-url="true">Services</a>
-  <a href="team.html" hx-get="team.html" hx-target="#main" hx-push-url="true">Team</a>
-  <a href="contact.html" hx-get="contact.html" hx-target="#main" hx-push-url="true">Contact</a>
-</nav>
-
+    <!-- Wrap nav inside .nav-links -->
+    <div class="nav-links">
+      <nav>
+        <a href="about.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="animated">About</a>
+        <a href="services.html" hx-get="services.html" hx-target="#main" hx-push-url="true">Services</a>
+        <a href="team.html" hx-get="team.html" hx-target="#main" hx-push-url="true">Team</a>
+        <a href="contact.html" hx-get="contact.html" hx-target="#main" hx-push-url="true">Contact</a>
+      </nav>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <main id="main" class="container"
     hx-get="about.html"
