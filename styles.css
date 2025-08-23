@@ -234,13 +234,13 @@ h2::after {
   background-blend-mode: lighten;
 }
 
-/* Photo column with responsive sizing */
+/* Only team-row photos get this sizing */
 .team-row .photo {
-  flex: 0 0 clamp(80px, 15vw, 120px); /* fluid between 80px-120px, works on iPad */
+  flex: 0 0 clamp(80px, 15vw, 120px);
   max-width: clamp(80px, 15vw, 120px);
 }
 
-/* Headshot image */
+/* Headshot image inside team-row only */
 .team-row .headshot {
   width: 100%;
   aspect-ratio: 1;
@@ -256,25 +256,15 @@ h2::after {
   box-shadow: 0 0 12px rgba(23, 89, 128, 0.3);
 }
 
-/* Details column */
-.team-row .details {
-  flex: 1;
-  min-width: 200px;
-}
-
-/* Responsive adjustments for tablets and phones */
-@media (max-width: 1024px) { /* iPad landscape/portrait */
-  .team-row {
-    flex-direction: row;
-    align-items: center;
-  }
+/* Responsive adjustments scoped to team-row */
+@media (max-width: 1024px) { 
   .team-row .photo {
     flex: 0 0 100px;
     max-width: 100px;
   }
 }
 
-@media (max-width: 768px) { /* iPhone/tablet portrait */
+@media (max-width: 768px) {
   .team-row {
     flex-direction: column;
     align-items: center;
@@ -289,76 +279,9 @@ h2::after {
   }
 }
 
-@media (max-width: 480px) { /* small phones */
+@media (max-width: 480px) {
   .team-row .photo {
     flex: 0 0 50%;
     max-width: 50%;
   }
-}
-
-/* Hamburger menu fixes for iOS + Android */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-  -webkit-tap-highlight-color: transparent;
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: var(--color-header-text);
-  border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    background: var(--color-header-bg);
-    padding: 1rem 2rem;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 0.5rem 0;
-    color: var(--color-header-text);
-    text-decoration: none;
-    font-weight: 500;
-  }
-}
-
-/* Hamburger animation */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
 }
