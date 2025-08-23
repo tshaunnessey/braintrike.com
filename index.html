@@ -59,10 +59,23 @@
   </footer>
 
 <script>
-  document.querySelector('.hamburger').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('show');
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('show');
+    hamburger.classList.toggle('active'); // animate into X
+  });
+
+  // Close menu + reset hamburger after clicking a nav link
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('show');
+      hamburger.classList.remove('active');
+    });
   });
 </script>
+
 
 </body>
 </html>
