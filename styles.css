@@ -235,11 +235,19 @@ h2::after {
   background-blend-mode: lighten;
 }
 
-/* Photo column */
 .team-row .photo {
-  flex: 0 0 120px;
-  max-width: 120px;
+  flex: 0 0 clamp(80px, 12vw, 120px); /* min 80px, max 120px, fluid in between */
+  max-width: clamp(80px, 12vw, 120px);
 }
+
+/* Optional: adjust photo on smaller mobile screens for extra small devices */
+@media (max-width: 480px) {
+  .team-row .photo {
+    flex: 0 0 50%;        /* slightly smaller on tiny phones */
+    max-width: 50%;
+  }
+}
+
 
 /* Headshot image */
 .team-row .headshot {
