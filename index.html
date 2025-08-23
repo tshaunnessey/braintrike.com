@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" hx-boost="true" hx-target="#main">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,7 +21,7 @@
 <body>
 <header>
   <div class="container header-flex">
-    <a href="index.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="logo-link" aria-label="BrainTrike home">
+    <a href="index.html" class="logo-link" aria-label="BrainTrike home">
       <img src="images/combo-logo-white.svg" alt="BrainTrike Logo" class="logo" />
     </a>
 
@@ -35,28 +35,24 @@
     <!-- Wrap nav inside .nav-links -->
     <div class="nav-links">
       <nav>
-        <a href="about.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="animated">About</a>
-        <a href="services.html" hx-get="services.html" hx-target="#main" hx-push-url="true">Services</a>
-        <a href="team.html" hx-get="team.html" hx-target="#main" hx-push-url="true">Team</a>
-        <a href="contact.html" hx-get="contact.html" hx-target="#main" hx-push-url="true">Contact</a>
+        <a href="about.html" class="animated">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </div>
 </header>
 
-
-  <main id="main" class="container"
-    hx-get="about.html"
-    hx-trigger="load"
-    hx-swap="innerHTML"
-    transition-duration="500ms">
-    <!-- Content swaps in here -->
+  <main id="main" class="container">
+    <h1>Welcome</h1>
+    <p>Home page content here</p>
   </main>
 
   <footer class="container">
     <hr>
     <div class="bg-text">
-    <p>&copy; 2025 BrainTrike. All rights reserved. 🧠</p>
+      <p>&copy; 2025 BrainTrike. All rights reserved. 🧠</p>
     </div>
   </footer>
 
@@ -77,7 +73,6 @@
     });
   });
 </script>
-
 
 </body>
 </html>
