@@ -1,3 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* Default (dark navy look) */
+  --brand-primary: #002244;
+  --brand-accent: #35944b; 
+  --brand-bg: #203023;
+  --brand-text: #121212;
+  --body-bg: #002244;
+  --brand-white: #ffffff;
+  --color-header-bg: #002244;
+  --color-header-text: #ffffff;
+  --nav-primary: #F1EDE4;
+  --nav-visited: #ffffff;
+  --nav-hover: #ffffff;
+  --headshot-border: #35944b;
+}
+
+body {
+  font-family: 'Roboto', system-ui, sans-serif;
+  color: var(--brand-text);
+  margin: 0;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  /* Gradient overlay + tiled background image */
+  background-image: 
+    linear-gradient(
+      180deg,
+      var(--brand-primary) 0px,
+      var(--brand-primary) 150px,
+      rgba(0, 34, 68, 0.9) 200px,
+      rgba(0, 34, 68, 0.85) 60%,
+      rgba(18, 18, 18, 0.95) 100%
+    ),
+    url('/images/circuit.svg');
+
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 300px;
+  background-position: top, center;
+  background-attachment: fixed;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 960px;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+  margin: 0 auto;
+  transition: all 500ms ease-out;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--brand-primary);
+  color: var(--color-header-text);
+  padding: 1.5rem 0;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.2s ease;
+}
+
+body.scrolled header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header a {
+  color: var(--color-header-text);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo { 
+  height: 80px; 
+  width: auto; 
+  display: block; 
+}
+
+a {
+  color: var(--nav-primary);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--nav-visited);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav a {
+  color: var(--color-header-text);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--nav-hover);
+}
+
+nav a::after,
+nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--brand-accent);
+  transition: width 0.3s ease;
+}
+
+nav a::after {
+  width: 0%;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+.animated {
+  animation: fadeIn 500ms forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: .5rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  letter-spacing: 0.05em;
+  font-weight: 1500;
+  color: var(--brand-text);
+}
+
+h2 {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: var(--brand-accent);
+  margin-top: 0.5rem;
+}
+
+.bg-header {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-header-text);
+}
+
+.bg-text {
+  font-family: 'Roboto', system-ui, sans-serif;
+  color: var(--color-header-text);
+  margin: 0;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
 /* Team cards container */
 .team-list {
   display: flex;
