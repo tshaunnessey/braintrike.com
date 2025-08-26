@@ -122,13 +122,13 @@ nav a.active::after { width: 100%; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* Headings */
-h1 { font-size: 2.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-h2 { font-size: 1.25rem; font-weight: 3000; color: var(--brand-text); display: inline-block; position: relative; letter-spacing: 0.05em; margin: 0.5rem 0; }
+h1 { font-size: 2.25rem; font-weight: 600; }
+h2 { font-size: 1.25rem; font-weight: 3000; color: var(--brand-text); display: inline-block; position: relative; letter-spacing: 0.05em;}
 h2::after { content: ''; display: block; height: 2px; background-color: var(--brand-accent); }
-h3 { font-size: 1.25rem; font-weight: 500; margin: 1.5rem 0 0.25rem 0; }
+h3 { font-size: 1.25rem; font-weight: 500; }
 h1, h2, h3 { letter-spacing: -0.01em; }
 
-.bg-header { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-header-text); }
+.bg-header { font-size: 1.4rem; font-weight: 600; color: var(--color-header-text); }
 .bg-text { font-family: 'Roboto', system-ui, sans-serif; color: var(--color-header-text); margin: 0; line-height: 1.6; transition: background 0.3s ease, color 0.3s ease; }
 
 /* Button Container */
