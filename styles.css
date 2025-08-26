@@ -289,17 +289,14 @@ h1, h2, h3 { letter-spacing: -0.01em; }
   }
 }
 
-/* Card components not touched */
 .card {
   background-color: #e6f0fa;
   padding: 1.5rem;
   margin-bottom: 2rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  /* same background patterns if desired */
 }
 
-/* Hamburger menu */
 .hamburger {
   display: none;
   flex-direction: column;
