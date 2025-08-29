@@ -436,3 +436,57 @@ h1, h2, h3 { letter-spacing: -0.01em; }
   .nav-links.show { display: flex; }
   .nav-links a { padding: 0.5rem 0; color: var(--color-header-text); text-decoration: none; font-weight: 500; }
 }
+
+
+
+
+/* ---- Paragraph & Text Spacing ---- */
+p {
+  margin: 0 0 1rem 0;   /* consistent spacing below paragraphs */
+  line-height: 1.7;     /* a touch more breathable than 1.6 */
+}
+
+p:last-child {
+  margin-bottom: 0;     /* avoid trailing gaps */
+}
+
+/* ---- Card Improvements ---- */
+.card {
+  background: #e6f0fa;
+  border-radius: 12px;
+  padding: 2rem; /* slightly more breathing room */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* consistent gap between elements */
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* more space between cards */
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .card-grid.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* maintain even spacing */
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem; /* slightly larger spacing for wide screens */
+  }
+}
+
+/* ---- Card Content ---- */
+.card-content p {
+  margin: 0 0 0.75rem 0; /* slightly smaller inner paragraph spacing */
+}
+
+.card-content p:last-child {
+  margin-bottom: 0;
+}
