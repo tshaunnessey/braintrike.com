@@ -1,81 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="BrainTrike" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BrainTrike - Digital Strategy and Solutions">
   <title>BrainTrike</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJQ27CXC9W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-HJQ27CXC9W', { 'send_page_view': false });
-  </script>
+    :root {
+      --primary: #002244;
+      --accent: #35944b;
+      --bg-light: #f8fafc;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--bg-light);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Mobile menu */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), #003366);
+      color: var(--white);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary);
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card li {
+      padding: 0.25rem 0;
+      color: var(--text-light);
+    }
+
+    .card li:before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    /* Team Cards */
+    .team-card {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+    }
+
+    .team-info h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .team-role {
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: var(--white);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background: #2d7a3d;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .team-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<header>
-  <div class="container header-flex">
-    <a href="about.html" class="logo-link" 
-       hx-get="about.html" hx-target="#main" hx-swap="innerHTML">
-      <img src="images/combo-logo-white.svg" alt="BrainTrike Logo" class="logo" />
-    </a>
-
-    <!-- Hamburger button -->
-    <button class="hamburger" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <div class="nav-links">
-      <nav>
-        <a href="about.html" hx-get="about.html" hx-target="#main" hx-swap="innerHTML">About</a>
-        <a href="team.html" hx-get="team.html" hx-target="#main" hx-swap="innerHTML">Team</a>
-        <a href="contact.html" hx-get="contact.html" hx-target="#main" hx-swap="innerHTML">Contact</a>
-      </nav>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="#" class="logo">🧠 BrainTrike</a>
+        <nav id="nav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="mobile-toggle" onclick="toggleNav()">☰</button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main id="main" class="container"
-      hx-get="about.html"
-      hx-trigger="load"
-      hx-swap="innerHTML">
-  <!-- About page content will load here on page load -->
-</main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Your Partner in Progress</h1>
+      <p>We help growing businesses make smart, scalable technology decisions by providing technology guidance with a human touch.</p>
+    </div>
+  </section>
 
-<footer class="container">
-  <hr>
-  <div class="bg-text">
-    <p>&copy; 2025 BrainTrike. All rights reserved. 🧠</p>
-  </div>
-</footer>
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Digital Strategy & Solutions</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--text-light);">
+        As your strategic partner, we combine hands-on tech leadership with supporting capabilities to make complex change simple, accessible, and aligned to your business goals.
+      </p>
+    </div>
+  </section>
 
-<script>
-  // Hamburger toggle with event delegation
-  document.addEventListener('click', (e) => {
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('.nav-links');
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Digital Solutions & Integrations</h3>
+          <p>We help organizations select, configure, and optimize tools to get more from their existing platforms.</p>
+          <ul>
+            <li>Tech stack evaluation & recommendations</li>
+            <li>Process automation & integrations</li>
+            <li>Data cleanup & governance</li>
+            <li>CRM, LMS, and SaaS implementations</li>
+          </ul>
+        </div>
 
-    // Toggle menu when hamburger is clicked
-    if (e.target.closest('.hamburger')) {
-      nav.classList.toggle('show');
-      hamburger.classList.toggle('active');
+        <div class="card">
+          <h3>Strategic Advisory</h3>
+          <p>Sometimes you need more than a vendor — you need a thought partner to guide your team through key transitions.</p>
+          <ul>
+            <li>Project or retainer-based strategy</li>
+            <li>Digital roadmap & change management</li>
+            <li>RFP/vendor selection guidance</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Content & Media Systems</h3>
+          <p>Light-touch production support that aligns with your brand and objectives for training, campaigns, or executive communications.</p>
+          <ul>
+            <li>Audio & video content production</li>
+            <li>Instructional design & microlearning</li>
+            <li>Podcast editing & distribution</li>
+            <li>Virtual event support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team">
+    <div class="container">
+      <h2 class="section-title">Meet Our Team</h2>
+      <div class="cards">
+        <div class="card team-card">
+          <img src="images/tim.jpeg" alt="Tim Shaunnessey" class="team-avatar">
+          <div class="team-info">
+            <h3>Tim Shaunnessey</h3>
+            <div class="team-role">Founder & Principal Consultant</div>
+            <p>Over 12 years of experience at the intersection of technology, media, and business strategy. Tim helps organizations align their vision with practical, future-ready solutions.</p>
+          </div>
+        </div>
+
+        <div class="card team-card">
+          <img src="images/jessica.jpeg" alt="Jessica Jones" class="team-avatar">
+          <div class="team-info">
+            <h3>Jessica Jones</h3>
+            <div class="team-role">Co-Founder & Strategic Advisor</div>
+            <p>Over 15 years of cross-sector experience in management, consulting, operations, and strategy across professional services, retail, manufacturing, and hospitality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">Get In Touch</h2>
+      <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+        Ready to explore new opportunities or discuss a specific project? We'd love to hear from you.
+      </p>
+      <div class="contact-buttons">
+        <a href="mailto:hello@braintrike.com" class="btn">📧 Send Message</a>
+        <a href="https://calendly.com/braintrike/30min" class="btn btn-outline">📅 Book Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BrainTrike. All rights reserved. 🧠</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('open');
     }
 
-    // Close menu when any nav link is clicked
-    if (e.target.closest('.nav-links a')) {
-      nav.classList.remove('show');
-      hamburger.classList.remove('active');
-    }
-  });
-</script>
-
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+          // Close mobile menu if open
+          document.getElementById('nav').classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
