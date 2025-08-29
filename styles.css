@@ -118,7 +118,7 @@ p {
 p:last-child { margin-bottom: 0; }
 
 h1 { font-size: 2.25rem; font-weight: 600; }
-h2 { font-size: 1.25rem; font-weight: 700; color: var(--brand-text); display: inline-block; position: relative; letter-spacing: 0.05em;}
+h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-header-text); display: inline-block; position: relative; letter-spacing: 0.05em;}
 h2::after { content: ''; display: block; height: 2px; background-color: var(--brand-accent); }
 h3 { font-size: 1.25rem; font-weight: 500; }
 h1, h2, h3 { letter-spacing: -0.01em; }
