@@ -24,7 +24,16 @@
       <a href="about.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="logo-link" aria-label="BrainTrike home">
         <img src="images/combo-logo-white.svg" alt="BrainTrike Logo" class="logo" />
       </a>
-      <nav>
+      
+      <!-- Hamburger button (mobile only) -->
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <!-- Navigation menu -->
+      <nav class="nav-menu">
         <a href="about.html" hx-get="about.html" hx-target="#main" hx-push-url="true" class="animated">About</a>
         <a href="team.html" hx-get="team.html" hx-target="#main" hx-push-url="true">Team</a>
         <a href="contact.html" hx-get="contact.html" hx-target="#main" hx-push-url="true">Contact</a>
@@ -46,5 +55,45 @@
     <p>&copy; 2025 BrainTrike. All rights reserved. 🧠</p>
     </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      hamburger.addEventListener('click', function() {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        document.body.classList.toggle('menu-open', !isExpanded);
+      });
+      
+      // Close menu when clicking on nav links
+      const navLinks = document.querySelectorAll('.nav-menu a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
