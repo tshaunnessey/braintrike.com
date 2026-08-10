@@ -27,17 +27,17 @@
   .header-content {
     display: flex;
     justify-content: center;
-    
+    padding: .5rem 0;
   }
-  .logo img { height: 150px; display: block; }
+  .logo img { height: 120px; display: block; }
 
   .hero {
     background: var(--primary);
     color: #fff;
-    padding: 3rem 0;
+    padding: 1rem 0;
     text-align: center;
   }
-  .hero h1 { font-size: 2.25rem; margin-bottom: 0.75rem; }
+  .hero h1 { font-size: 1.5rem; margin-bottom: 0.75rem; }
   .hero p { max-width: 640px; margin: 0 auto; color: #cbd5e1; }
 
   section { padding: 2.5rem 0; }
@@ -70,10 +70,6 @@
   .card li { padding: 0.15rem 0; color: var(--text-light); }
   .card li:before { content: "– "; color: var(--accent); }
 
-  .team-card { display: flex; align-items: center; gap: 1.25rem; }
-  .team-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
-  .team-role { color: var(--accent); font-weight: 500; font-size: 0.9rem; margin-bottom: 0.4rem; }
-
   .contact { background: #f1f5f9; text-align: center; }
   .contact p { color: var(--text-light); max-width: 480px; margin: 0 auto; }
   .contact-buttons {
@@ -91,7 +87,6 @@
     font-size: 0.95rem;
   }
   .btn-primary { background: var(--accent); color: #fff; }
-  .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
 
   footer {
     text-align: center;
@@ -100,17 +95,13 @@
     font-size: 0.85rem;
     border-top: 1px solid var(--border);
   }
-
-  @media (max-width: 700px) {
-    .team-card { flex-direction: column; text-align: center; }
-  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="container header-content">
-    <a href="#" class="logo"><img src="https://braintrike.com/images/combo-logo-white.svg" alt="BrainTrike"></a>
+    <span class="logo"><img src="https://braintrike.com/images/combo-logo-white.svg" alt="BrainTrike" width="180" height="60"></span>
   </div>
 </header>
 
@@ -171,7 +162,7 @@
     <p>Ready to explore new opportunities or discuss a specific project? We'd love to hear from you.</p>
     <div class="contact-buttons">
       <a href="mailto:hello@braintrike.com" class="btn btn-primary">hello@braintrike.com</a>
-     </div>
+    </div>
   </div>
 </section>
 
@@ -181,14 +172,5 @@
   </div>
 </footer>
 
-<script>
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-</script>
 </body>
 </html>
-```
